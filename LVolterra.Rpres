@@ -1,0 +1,60 @@
+LVolterra
+========================================================
+author: Pedro Rebelo
+date: 24-06-2019
+autosize: False
+
+
+Slide 2
+========================================================
+The Lotka-Volterra model of the prey-predator relationship, explains the growth of two species in which one predates another. This relation leads to the appearance of periodical fluctuations of the number of prey and predators by the intimate relation that is established between them.
+
+Y can see more information: 
+
+https://en.wikipedia.org/wiki/Lotka–Volterra_equations 
+
+https://pdfs.semanticscholar.org/0e46/be7d7c51dab63459c3bba3cf23993b2e2dfa.pdf
+
+
+
+
+Slide 3
+========================================================
+The population of seals x is predated by a species of bears y . The seals has a growth proportional to the number of elements of that population and decreases proportional to the between the number of encounters between the seals and the bears (i.e. proportional to xy). 
+
+$$\frac{\mathrm{d} x }{\mathrm{d} t}= \dot{x}=ax-bxy=x(a-by)$$
+
+The bears y has a growth proportional to its own number and x (ie xy is a number proportional to encounters with predation) and soon decrease the population of seals with the increase of bears.
+
+$$\frac{\mathrm{d} y }{\mathrm{d} t}=\dot{y}=dxy-cy=y(-c+dx)$$
+
+Slide 4
+========================================================
+a = linear seal growth;
+
+b = death rate by seal predation; 
+
+c = bear mortality rate; 
+
+d = growth rate of the bear associated with the abundance of seals
+
+The app (https://trashmanp1.shinyapps.io/LVolterra/),  allows to adjust the parameters of the equation to observe the fluctuations of the number of prey (x) and the number of predators (y). To be more interesting, it was concretized in the relationship between the seals and the bear that eats them.
+
+Slide 5
+========================================================
+```{r, echo=T}
+
+
+ger <- 20 #number of generation
+fib <- 1:ger
+fib[1] <- 1
+fib[2] <- 1
+for (i in 3:ger) { 
+   fib[i] <- fib[i-1]+fib[i-2]
+} 
+
+```
+
+The growth of seals if there were no predators would quickly reach an astronomical value. Let us suppose that each generation would have descendants equal to itself. Thus for each generational jump the sum of the current generation and the previous one would give the number of seals. Even if we started with a couple of seals after 20 generations, we would have `r fib[20]` seals!
+
+the end.
